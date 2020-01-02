@@ -11,4 +11,4 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 DELETE FROM `creature` WHERE `id`=200000;
 
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `spawndist`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
-(3110360,200000,609,0,0,1,1,0,0,2376,-5650.18,425.996,37.126,300,0,0,27890000,0,0,0,0,0,"",0);
+(3110360,200000,609,0,0,1,1,0,0,2376,-5650.18,425.996,3.703166,300,0,0,27890000,0,0,0,0,0,"",0);
