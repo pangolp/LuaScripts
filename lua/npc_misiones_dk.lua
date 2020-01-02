@@ -1,5 +1,5 @@
 -- Acá iría el entry del npc que pongas en la DB
-local npcEntry = npcEntry
+local npcEntry = 200000
 
 -- Razas
 local HUMANO = 1
