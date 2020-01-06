@@ -72,6 +72,13 @@ function OnGossipHello(event, player, object)
                         end -- Si no fue premiado por la misión.
                     end -- si no es elfo nocturno
                 end -- si no es guerrero
+                if (player:GetClass() == DRUIDA) then
+                    if (player:GetRace() == ELFO_NOCTURNO) then
+                        if (player:GetQuestRewardStatus(6001) == false) then
+                            player:GossipMenuAddItem(0, 'Forma de oso / Bramido / Magullar', 1, 21)
+                        end -- Si no fue premiado por la misión.
+                    end -- si no es elfo nocturno
+                end -- si no es druida
             end -- si no es alianza
             if (teamId == 1) then
                 if (player:GetClass() == PALADIN) then
@@ -96,6 +103,13 @@ function OnGossipHello(event, player, object)
                         end -- Si no fue premiado por la misión.
                     end -- si es orco, troll o tauren
                 end -- si no es guerrero
+                if (player:GetClass() == DRUIDA) then
+                    if (player:GetRace() == TAUREN) then
+                        if (player:GetQuestRewardStatus(6002) == false) then
+                            player:GossipMenuAddItem(0, 'Forma de oso / Bramido / Magullar', 1, 22)
+                        end -- Si no fue premiado por la misión.
+                    end
+                end
             end -- si no es horda
         player:GossipSendMenu(npcEntry, object)
     end
@@ -231,6 +245,30 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
         end
         player:GossipComplete()
     end -- Actitud defensiva / Hender armadura / Provocar orco, troll y tauren
+    if (intid == 21) then
+        quests = {5923, 5924, 5925, 5291, 5929, 5931, 6001}
+        for i, quest in ipairs(quests) do
+            questRewardStatus = player:GetQuestRewardStatus(quest)
+            if (questRewardStatus == false) then
+                player:AddQuest(quest)
+                player:CompleteQuest(quest)
+                player:RewardQuest(quest)
+            end
+        end
+        player:GossipComplete()
+    end -- Forma de oso / Bramido / Magullar elfo nocturno
+    if (intid == 22) then
+        quests = {5926, 5927, 5928, 5922, 5930, 5932, 6002}
+        for i, quest in ipairs(quests) do
+            questRewardStatus = player:GetQuestRewardStatus(quest)
+            if (questRewardStatus == false) then
+                player:AddQuest(quest)
+                player:CompleteQuest(quest)
+                player:RewardQuest(quest)
+            end
+        end
+        player:GossipComplete()
+    end -- Forma de oso / Bramido / Magullar tauren
 end
 
 RegisterCreatureGossipEvent(npcEntry, 1, OnGossipHello)
