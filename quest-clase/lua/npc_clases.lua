@@ -54,9 +54,9 @@ function OnGossipHello(event, player, object)
                         if (player:GetQuestRewardStatus(9685) == false) then
                             player:GossipMenuAddItem(0, 'Redención elfo de sangre', 1, 13)
                         end -- si no tiene que quest completa
-                    end -- si no es humano
-                end
-            end
+                    end -- si no es elfo de sangre
+                end -- si no es paladin
+            end -- si no es horda
         player:GossipSendMenu(npcEntry, object)
     end
 end
