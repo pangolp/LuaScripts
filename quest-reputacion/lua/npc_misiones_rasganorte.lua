@@ -25,6 +25,9 @@ function OnGossipHello(event, player, object)
 				if (player:GetReputation(1156) ~= 42999) then
 					player:GossipMenuAddItem(0, '¡El Veredicto Cinéreo!', 1, 13)
 				end
+				if (player:GetQuestRewardStatus(12924) == false) then
+					player:GossipMenuAddItem(0, '!Los Hijos de Hodir!', 1, 14)
+				end
 			else
 				-- Si el jugador es horda…
 				if (player:GetQuestRewardStatus(12899) == false) then
@@ -38,6 +41,9 @@ function OnGossipHello(event, player, object)
 				end
 				if (player:GetReputation(1156) ~= 42999) then
 					player:GossipMenuAddItem(0, '¡El Veredicto Cinéreo!', 1, 13)
+				end
+				if (player:GetQuestRewardStatus(12924) == false) then
+					player:GossipMenuAddItem(0, '!Los Hijos de Hodir!', 1, 14)
 				end
 			end
 		end
@@ -77,7 +83,18 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 		-- Mismo caso que el de kirin tor y reposo del dragón
 		player:SetReputation(1156, 42999)
 	end
-	
+	if (intid == 14) then
+		quests = {12843, 12846, 12841, 12905, 12906, 12907, 12908, 12921, 12969, 12970, 12971, 12972, 12851, 12856, 13063, 12900, 12983, 12996, 12997, 13061, 13062, 12886, 13064, 12915, 12922, 12956, 12915, 12924}
+		for i, quest in ipairs(quests) do
+			questRewardStatus = player:GetQuestRewardStatus(quest)
+			if (questRewardStatus == false) then
+				player:AddQuest(quest)
+				player:CompleteQuest(quest)
+				player:RewardQuest(quest)
+			end
+		end
+		player:SetReputation(1119, 42999)
+	end -- Misiones de Los Hijos de Hodir
 	player:GossipComplete()
 end
 
