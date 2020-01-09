@@ -12,3 +12,7 @@ Solo completaremos las misiones necesarias para que puedan acceder a los intende
 - [x] Cruzada Argenta
 - [x] El Acuerdo del Reposo del Dragón
 - [x] El Veredicto Cinéreo
+
+![npc_misiones_rasganorte_1](screenshots/npc_misiones_rasganorte_1.jpg)
+
+![npc_misiones_rasganorte_2](screenshots/npc_misiones_rasganorte_2.jpg)
