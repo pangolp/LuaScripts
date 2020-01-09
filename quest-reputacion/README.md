@@ -8,6 +8,6 @@ Solo completaremos las misiones necesarias para que puedan acceder a los intende
 
 - [ ] Kirin Tor
 - [ ] Los hijos de Hodir
-- [ ] Los caballeros de la Espada de Ébano
+- [x] Los caballeros de la Espada de Ébano
 - [ ] Cruzada Argenta
 - [ ] El Acuerdo del Reposo del Dragón
