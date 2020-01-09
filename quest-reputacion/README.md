@@ -6,8 +6,9 @@ Solo completaremos las misiones necesarias para que puedan acceder a los intende
 
 > Las reputaciones son:
 
-- [ ] Kirin Tor
+- [x] Kirin Tor
 - [ ] Los hijos de Hodir
 - [x] Los caballeros de la Espada de Ébano
 - [ ] Cruzada Argenta
-- [ ] El Acuerdo del Reposo del Dragón
+- [x] El Acuerdo del Reposo del Dragón
+- [x] El Veredicto Cinéreo
