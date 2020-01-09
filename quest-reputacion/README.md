@@ -9,6 +9,6 @@ Solo completaremos las misiones necesarias para que puedan acceder a los intende
 - [x] Kirin Tor
 - [x] Los hijos de Hodir
 - [x] Los caballeros de la Espada de Ébano
-- [ ] Cruzada Argenta
+- [x] Cruzada Argenta
 - [x] El Acuerdo del Reposo del Dragón
 - [x] El Veredicto Cinéreo

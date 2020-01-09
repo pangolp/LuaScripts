@@ -28,6 +28,9 @@ function OnGossipHello(event, player, object)
 				if (player:GetQuestRewardStatus(12924) == false) then
 					player:GossipMenuAddItem(0, '!Los Hijos de Hodir!', 1, 14)
 				end
+				if (player:GetReputation(1106) ~= 42999) then
+					player:GossipMenuAddItem(0, '¡Cruzada Argenta!', 1, 15)
+				end
 			else
 				-- Si el jugador es horda…
 				if (player:GetQuestRewardStatus(12899) == false) then
@@ -44,6 +47,9 @@ function OnGossipHello(event, player, object)
 				end
 				if (player:GetQuestRewardStatus(12924) == false) then
 					player:GossipMenuAddItem(0, '!Los Hijos de Hodir!', 1, 14)
+				end
+				if (player:GetReputation(1106) ~= 42999) then
+					player:GossipMenuAddItem(0, '¡Cruzada Argenta!', 1, 15)
 				end
 			end
 		end
@@ -95,6 +101,10 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 		end
 		player:SetReputation(1119, 42999)
 	end -- Misiones de Los Hijos de Hodir
+	if (intid == 15) then
+		-- Mismo caso que el de kirin tor, reposo del dragón y Veredicto Cinéreo
+		player:SetReputation(1106, 42999)
+	end
 	player:GossipComplete()
 end
 
