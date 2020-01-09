@@ -6,25 +6,25 @@ local HORDA = 1
 
 function OnGossipHello(event, player, object)
 	-- Corrobora que el jugador no se encuentre en combate
-    if (player:IsInCombat() == false) then
-    	-- Inicializa el menú del jugador.
-        player:GossipClearMenu()
-        -- Chequea que el jugador sea de nivel 80.
-        if (player:GetLevel() == 80) then
-        	-- Si el jugador es alianza…
-        	if (player:GetTeam() == ALIANZA) then
-        		if (player:GetQuestRewardStatus(12898) == false) then
-        			player:GossipMenuAddItem(0, '¡Los caballeros de la Espada de Ébano!', 1, 10)
-        		end
-        	else
-        		-- Si el jugador es horda…
-        		if (player:GetQuestRewardStatus(12899) == false) then
-        			player:GossipMenuAddItem(0, '¡Los caballeros de la Espada de Ébano!', 1, 10)
-        		end
-        	end
-        end
-        player:GossipSendMenu(npcEntry, object)
-    end
+	if (player:IsInCombat() == false) then
+		-- Inicializa el menú del jugador.
+		player:GossipClearMenu()
+		-- Chequea que el jugador sea de nivel 80.
+		if (player:GetLevel() == 80) then
+			-- Si el jugador es alianza…
+			if (player:GetTeam() == ALIANZA) then
+				if (player:GetQuestRewardStatus(12898) == false) then
+					player:GossipMenuAddItem(0, '¡Los caballeros de la Espada de Ébano!', 1, 10)
+				end
+			else
+				-- Si el jugador es horda…
+				if (player:GetQuestRewardStatus(12899) == false) then
+					player:GossipMenuAddItem(0, '¡Los caballeros de la Espada de Ébano!', 1, 10)
+				end
+			end
+		end
+		player:GossipSendMenu(npcEntry, object)
+	end
 end
 
 function OnGossipSelect(event, player, object, sender, intid, code, menuid)
@@ -40,7 +40,7 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 				player:AddQuest(quest)
 				player:CompleteQuest(quest)
 				player:RewardQuest(quest)
-            end
+			end
 		end
 	end -- Misiones de la espalda de ebano.
 end
