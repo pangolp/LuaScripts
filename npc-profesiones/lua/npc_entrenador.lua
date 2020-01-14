@@ -4,7 +4,6 @@ local npcEntry = 200004
 local ALQUIMIA = 171
 local DESUELLO = 393
 local ENCANTAMIENTO = 333
-local HERBORISTERIA = 182
 local HERRERIA = 164
 local INGENIERIA = 202
 local INSCRIPCION = 773
@@ -12,6 +11,7 @@ local JOYERIA = 755
 local MINERIA = 186
 local PELETERIA = 165
 local SASTRERIA = 197
+local HERBORISTERIA = 182
 local COCINA = 185
 local PESCA = 356
 local PRIMEROS_AUXILIOS = 129
@@ -30,7 +30,37 @@ function OnGossipHello(event, player, object)
 				player:GossipMenuAddItem(0, '  æ Encantamiento 450 æ', 1, 12)
 			end
 			if ((player:HasSkill(HERRERIA) and (player:GetSkillValue(HERRERIA) ~= 450))) then
-				player:GossipMenuAddItem(0, '  æ Herreria 450 æ', 1, 13)
+				player:GossipMenuAddItem(0, '  æ Herrería 450 æ', 1, 13)
+			end
+			if ((player:HasSkill(INGENIERIA) and (player:GetSkillValue(INGENIERIA) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Ingeniería 450 æ', 1, 14)
+			end
+			if ((player:HasSkill(INSCRIPCION) and (player:GetSkillValue(INSCRIPCION) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Inscripción 450 æ', 1, 15)
+			end
+			if ((player:HasSkill(JOYERIA) and (player:GetSkillValue(JOYERIA) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Joyería 450 æ', 1, 16)
+			end
+			if ((player:HasSkill(MINERIA) and (player:GetSkillValue(MINERIA) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Minería 450 æ', 1, 17)
+			end
+			if ((player:HasSkill(PELETERIA) and (player:GetSkillValue(PELETERIA) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Peletería 450 æ', 1, 18)
+			end
+			if ((player:HasSkill(SASTRERIA) and (player:GetSkillValue(SASTRERIA) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Sastrería 450 æ', 1, 19)
+			end
+			if ((player:HasSkill(HERBORISTERIA) and (player:GetSkillValue(HERBORISTERIA) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Herboristería 450 æ', 1, 20)
+			end
+			if ((player:HasSkill(COCINA) and (player:GetSkillValue(COCINA) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Cocina 450 æ', 1, 21)
+			end
+			if ((player:HasSkill(PESCA) and (player:GetSkillValue(PESCA) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Pesca 450 æ', 1, 22)
+			end
+			if ((player:HasSkill(PRIMEROS_AUXILIOS) and (player:GetSkillValue(PRIMEROS_AUXILIOS) ~= 450))) then
+				player:GossipMenuAddItem(0, '  æ Primeros auxilios 450 æ', 1, 23)
 			end
 			player:GossipSendMenu(npcEntry, object)
 		end
@@ -39,7 +69,6 @@ end
 
 function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 	if (intid == 10) then
-		-- 2259 - ALQUIMIA RANGO 1
 		-- 3101 - ALQUIMIA RANGO 2
 		-- 3464 - ALQUIMIA RANGO 3
 		-- 11611 - ALQUIMIA RANGO 4
@@ -98,6 +127,144 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 		end
 		maxSkill = player:GetMaxSkillValue(HERRERIA)
 		player:AdvanceSkill(HERRERIA, maxSkill)
+	end
+	if (intid == 14) then
+		-- 4037 - INGENIERIA RANGO 2
+		-- 4038 - INGENIERIA RANGO 3
+		-- 12656 - INGENIERIA RANGO 4
+		-- 30350 - INGENIERIA RANGO 5
+		-- 51306 - INGENIERIA RANGO 6
+		spells = {4037, 4038, 12656, 30350, 51306}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(INGENIERIA)
+		player:AdvanceSkill(INGENIERIA, maxSkill)
+	end
+	if (intid == 15) then
+		-- 45358 - INSCRIPCION RANGO 2
+		-- 45359 - INSCRIPCION RANGO 3
+		-- 45360 - INSCRIPCION RANGO 4
+		-- 45361 - INSCRIPCION RANGO 5
+		-- 45363 - INSCRIPCION RANGO 6
+		spells = {45358, 45359, 45360, 45361, 45363}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(INSCRIPCION)
+		player:AdvanceSkill(INSCRIPCION, maxSkill)
+	end
+	if (intid == 16) then
+		-- 25230 - JOYERIA RANGO 2
+		-- 28894 - JOYERIA RANGO 3
+		-- 28895 - JOYERIA RANGO 4
+		-- 28897 - JOYERIA RANGO 5
+		-- 51311 - JOYERIA RANGO 6
+		spells = {25230, 28894, 28895, 28897, 51311}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(JOYERIA)
+		player:AdvanceSkill(JOYERIA, maxSkill)
+	end
+	if (intid == 17) then
+		-- 2576 - MINERIA RANGO 2
+		-- 3564 - MINERIA RANGO 3
+		-- 10248 - MINERIA RANGO 4
+		-- 29354 - MINERIA RANGO 5
+		-- 50310 - MINERIA RANGO 6
+		spells = {2576, 3564, 10248, 29354, 50310}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(MINERIA)
+		player:AdvanceSkill(MINERIA, maxSkill)
+	end
+	if (intid == 18) then
+		-- 3104 - PELETERIA RANGO 2
+		-- 3811 - PELETERIA RANGO 3
+		-- 10662 - PELETERIA RANGO 4
+		-- 32549 - PELETERIA RANGO 5
+		-- 51302 - PELETERIA RANGO 6
+		spells = {3104, 3811, 10662, 32549, 51302}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(PELETERIA)
+		player:AdvanceSkill(PELETERIA, maxSkill)
+	end
+	if (intid == 19) then
+		-- 3909 - SASTRERIA RANGO 2
+		-- 3910 - SASTRERIA RANGO 3
+		-- 12180 - SASTRERIA RANGO 4
+		-- 26790 - SASTRERIA RANGO 5
+		-- 51309 - SASTRERIA RANGO 6
+		spells = {3909, 3910, 12180, 26790, 51309}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(SASTRERIA)
+		player:AdvanceSkill(SASTRERIA, maxSkill)
+	end
+	if (intid == 20) then
+
+	end
+	if (intid == 21) then
+		-- 3102 - COCINA RANGO 2
+		-- 3413 - COCINA RANGO 3
+		-- 18260 - COCINA RANGO 4
+		-- 33359 - COCINA RANGO 5
+		-- 51296 - COCINA RANGO 6
+		spells = {3102, 3413, 18260, 33359, 51296}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(COCINA)
+		player:AdvanceSkill(COCINA, maxSkill)
+	end
+	if (intid == 22) then
+		-- 7731 - PESCA RANGO 2
+		-- 7732 - PESCA RANGO 3
+		-- 18248 - PESCA RANGO 4
+		-- 33095 - PESCA RANGO 5
+		-- 51294 - PESCA RANGO 6
+		spells = {7731, 7732, 18248, 33095, 51294}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(PESCA)
+		player:AdvanceSkill(PESCA, maxSkill)
+	end
+	if (intid == 23) then
+		-- 1159 - PRIMEROS AUXILIOS RANGO 2
+		-- 3267 - PRIMEROS AUXILIOS RANGO 3
+		-- 3268 - PRIMEROS AUXILIOS RANGO 4
+		-- 7926 - PRIMEROS AUXILIOS RANGO 5
+		-- 7927 - PRIMEROS AUXILIOS RANGO 6
+		spells = {1159, 3267, 3268, 7926, 7927}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(PRIMEROS_AUXILIOS)
+		player:AdvanceSkill(PRIMEROS_AUXILIOS, maxSkill)
 	end
 	player:GossipComplete()
 end
