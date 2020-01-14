@@ -4,11 +4,11 @@ El script tiene como objetivo, subirle la profesión a los jugadores que lo visi
 
 ### Profesiones
 
-- [ ] **Alquimia** : ID de Habilidad: 171
-- [ ] **Desuello** : ID de Habilidad: 393
-- [ ] **Encantamiento** : ID de Habilidad: 333
+- [x] **Alquimia** : ID de Habilidad: 171
+- [x] **Desuello** : ID de Habilidad: 393
+- [x] **Encantamiento** : ID de Habilidad: 333
 - [ ] **Herboristería** : ID de Habilidad: 182
-- [ ] **Herrería** : ID de Habilidad: 164
+- [x] **Herrería** : ID de Habilidad: 164
 - [ ] **Ingeniería** : ID de Habilidad: 202
 - [ ] **Inscripción** : ID de Habilidad: 773
 - [ ] **Joyería** : ID de Habilidad: 755
