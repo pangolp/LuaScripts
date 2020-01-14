@@ -14,7 +14,7 @@ El script tiene como objetivo, subirle la profesión a los jugadores que lo visi
 - [x] **Minería** : ID de Habilidad: 186
 - [x] **Peletería** : ID de Habilidad: 165
 - [x] **Sastrería** : ID de Habilidad: 197
-- [ ] **Herboristería** : ID de Habilidad: 182
+- [x] **Herboristería** : ID de Habilidad: 182
 - [x] **Cocina** : ID de Habilidad: 185
 - [x] **Pesca** : ID de Habilidad: 356
 - [x] **Primeros auxilios** : ID de Habilidad: 129

@@ -219,7 +219,19 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 		player:AdvanceSkill(SASTRERIA, maxSkill)
 	end
 	if (intid == 20) then
-
+		-- 2368 - HERBORISTERIA RANGO 2
+		-- 3570 - HERBORISTERIA RANGO 3
+		-- 11993 - HERBORISTERIA RANGO 4
+		-- 28695 - HERBORISTERIA RANGO 5
+		-- 50300 - HERBORISTERIA RANGO 6
+		spells = {2368, 3570, 11993, 28695, 50300}
+		for i, spell in ipairs(spells) do
+			if (player:HasSpell(spell) == false) then
+				player:LearnSpell(spell)
+			end
+		end
+		maxSkill = player:GetMaxSkillValue(HERBORISTERIA)
+		player:AdvanceSkill(HERBORISTERIA, maxSkill)
 	end
 	if (intid == 21) then
 		-- 3102 - COCINA RANGO 2
@@ -252,12 +264,12 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 		player:AdvanceSkill(PESCA, maxSkill)
 	end
 	if (intid == 23) then
-		-- 1159 - PRIMEROS AUXILIOS RANGO 2
-		-- 3267 - PRIMEROS AUXILIOS RANGO 3
-		-- 3268 - PRIMEROS AUXILIOS RANGO 4
-		-- 7926 - PRIMEROS AUXILIOS RANGO 5
-		-- 7927 - PRIMEROS AUXILIOS RANGO 6
-		spells = {1159, 3267, 3268, 7926, 7927}
+		-- 3274 - PRIMEROS AUXILIOS RANGO 2
+		-- 7924 - PRIMEROS AUXILIOS RANGO 3
+		-- 10846 - PRIMEROS AUXILIOS RANGO 4
+		-- 27028 - PRIMEROS AUXILIOS RANGO 5
+		-- 45542 - PRIMEROS AUXILIOS RANGO 6
+		spells = {3274, 7924, 10846, 27028, 45542}
 		for i, spell in ipairs(spells) do
 			if (player:HasSpell(spell) == false) then
 				player:LearnSpell(spell)
