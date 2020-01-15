@@ -1,5 +1,7 @@
 -- Acá iría el entry del npc que pongas en la DB
-local npcEntry = 200004
+local NPC_ENTRY = 200004
+local SMSG_NPC_TEXT_UPDATE = 384
+local MAX_GOSSIP_TEXT_OPTIONS = 8
 
 local ALQUIMIA = 171
 local DESUELLO = 393
@@ -16,9 +18,28 @@ local COCINA = 185
 local PESCA = 356
 local PRIMEROS_AUXILIOS = 129
 
+function Player:GossipSetText(text, textID)
+    local data = CreatePacket(SMSG_NPC_TEXT_UPDATE, 100);
+    data:WriteULong(textID or 0x7FFFFFFF)
+    for i = 1, MAX_GOSSIP_TEXT_OPTIONS do
+        data:WriteFloat(0) -- Probability
+        data:WriteString(text) -- Text
+        data:WriteString(text) -- Text
+        data:WriteULong(0) -- language
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+    end
+    self:SendPacket(data)
+end
+
 function OnGossipHello(event, player, object)
 	if (player:IsInCombat() == false) then
 		player:GossipClearMenu()
+		player:GossipSetText("Hola $n, soy Oscar Isidro Parrilli, actual senador nacional de la Argentina. Como tengo algo de tiempo libre en el Senado, el servidor de Wow, al que estás jugando me pidió que se ayude a subir aquellas profesiones que te dan pereza. $B$BEs SIMPLE, solamente debes ir, tomar la profesión esa que te da pereza subir y volver a hablar conmigo. Yo me encargare de subirte la profesión a 450. Eso sí, no te daré ninguna receta.")
 		if (player:GetLevel() == 80) then
 			if ((player:HasSkill(ALQUIMIA) and (player:GetSkillValue(ALQUIMIA) ~= 450))) then
 				player:GossipMenuAddItem(0, '  æ Alquimia 450 æ', 1, 10)
@@ -62,7 +83,8 @@ function OnGossipHello(event, player, object)
 			if ((player:HasSkill(PRIMEROS_AUXILIOS) and (player:GetSkillValue(PRIMEROS_AUXILIOS) ~= 450))) then
 				player:GossipMenuAddItem(0, '  æ Primeros auxilios 450 æ', 1, 23)
 			end
-			player:GossipSendMenu(npcEntry, object)
+			-- player:GossipSendMenu(NPC_ENTRY, object)
+			player:GossipSendMenu(0x7FFFFFFF, object)
 		end
 	end
 end
@@ -281,5 +303,5 @@ function OnGossipSelect(event, player, object, sender, intid, code, menuid)
 	player:GossipComplete()
 end
 
-RegisterCreatureGossipEvent(npcEntry, 1, OnGossipHello)
-RegisterCreatureGossipEvent(npcEntry, 2, OnGossipSelect)
+RegisterCreatureGossipEvent(NPC_ENTRY, 1, OnGossipHello)
+RegisterCreatureGossipEvent(NPC_ENTRY, 2, OnGossipSelect)
