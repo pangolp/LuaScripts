@@ -4,7 +4,8 @@ El script tiene como objetivo, subirle la profesión a los jugadores que lo visi
 
 ### Profesiones
 
-![quest_clase_paladin_1](screenshots/npc_profesiones_1.jpg)
+![npc_profesiones_1](screenshots/npc_profesiones_1.jpg)
+![npc_profesiones_2](screenshots/npc_profesiones_2.jpg)
 
 - [x] **Alquimia** : ID de Habilidad: 171
 - [x] **Desuello** : ID de Habilidad: 393
