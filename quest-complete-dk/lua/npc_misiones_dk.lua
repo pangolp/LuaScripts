@@ -13,12 +13,32 @@ local TROLL = 8
 local ELFO_DE_SANGRE = 10
 local DRAENEI = 11
 
+
+function Player:GossipSetText(text, textID)
+    local data = CreatePacket(SMSG_NPC_TEXT_UPDATE, 100);
+    data:WriteULong(textID or 0x7FFFFFFF)
+    for i = 1, MAX_GOSSIP_TEXT_OPTIONS do
+        data:WriteFloat(0) -- Probability
+        data:WriteString(text) -- Text
+        data:WriteString(text) -- Text
+        data:WriteULong(0) -- language
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+    end
+    self:SendPacket(data)
+end
+
 -- Esta función sirve para crear los gossip (opciones del menú)
 function OnGossipHello(event, player, object)
     -- Si el jugador no esta en combate
     if (player:IsInCombat() == false) then
         -- Limpio el menú de opciones del jugador
         player:GossipClearMenu()
+        player:GossipSetText("Saludos $n. Debido a que me han dicho que te pachorra completas todas la misiones que te he encomendado, y a que mi ejercito cada vez está más corto de gente, decidí completarte las misiones así podes seguir con tu aventura. Pero no vayas a unir a la alianza o la horda, recorda que te traje a este mundo que me dieras una mano. Nos vemos.$B$BPD. Nos vemos en el trono de hielo traidor.")
             -- Si el jugador es un Caballero de la Muerte
             -- Y no fue recompensado por la misión El camino de los reyes (Alianza)
             teamId = player:GetTeam()
@@ -31,7 +51,7 @@ function OnGossipHello(event, player, object)
                 -- Agrego las opciones al menú
                 player:GossipMenuAddItem(0, '¡Completame las misiones por favor!', 1, 10)
             end
-        player:GossipSendMenu(npcEntry, object, 1000001)
+        player:GossipSendMenu(0x7FFFFFFF, object)
     end
 end
 
