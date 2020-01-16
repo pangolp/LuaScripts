@@ -1,5 +1,7 @@
 -- Acá iría el entry del npc que pongas en la DB
 local npcEntry = 200000
+local SMSG_NPC_TEXT_UPDATE = 384
+local MAX_GOSSIP_TEXT_OPTIONS = 8
 
 -- Razas
 local HUMANO = 1
