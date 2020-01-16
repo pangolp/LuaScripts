@@ -1,14 +1,35 @@
 -- Acá iría el entry del npc que pongas en la DB
 local npcEntry = 200003
+local SMSG_NPC_TEXT_UPDATE = 384
+local MAX_GOSSIP_TEXT_OPTIONS = 8
 
 local ALIANZA = 0
 local HORDA = 1
+
+function Player:GossipSetText(text, textID)
+    local data = CreatePacket(SMSG_NPC_TEXT_UPDATE, 100);
+    data:WriteULong(textID or 0x7FFFFFFF)
+    for i = 1, MAX_GOSSIP_TEXT_OPTIONS do
+        data:WriteFloat(0) -- Probability
+        data:WriteString(text) -- Text
+        data:WriteString(text) -- Text
+        data:WriteULong(0) -- language
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+        data:WriteULong(0) -- emote
+    end
+    self:SendPacket(data)
+end
 
 function OnGossipHello(event, player, object)
 	-- Corrobora que el jugador no se encuentre en combate
 	if (player:IsInCombat() == false) then
 		-- Inicializa el menú del jugador.
 		player:GossipClearMenu()
+		player:GossipSetText("Hola $c. Soy Jaime. Trabajo para los servicios de inteligencia, no puedo contarte demasiado, pero debido a que a veces subir las reputaciones con estas facciones lleva tiempo y estamos probando el contenido, me dijeron que puedo completarte algunas misiones para ver intendentes y que puedas usar determinados ítems que requieren de esas reputaciones. Dime que reputación de la lista quieres subir…$B$BPD. Tenes que ser nivel 80 para poder usar este servicio.")
 		-- Chequea que el jugador sea de nivel 80.
 		if (player:GetLevel() == 80) then
 			-- Si el jugador es alianza…
@@ -53,7 +74,7 @@ function OnGossipHello(event, player, object)
 				end
 			end
 		end
-		player:GossipSendMenu(npcEntry, object)
+		player:GossipSendMenu(0x7FFFFFFF, object)
 	end
 end
 
