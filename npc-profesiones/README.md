@@ -1,3 +1,5 @@
+# ![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) AzerothCore
+
 ### NPC entrenador de profesiones 450
 
 El script tiene como objetivo, subirle la profesión a los jugadores que lo visiten, mediante un menú. Para que funcione, el jugador debe hablar con el entrenador inicial de la profesión. **Una vez tomada la profesión, dirigirse a nuestro npc y el mismo completara la profesión hasta el 450 sin otorgarle ninguna receta.**

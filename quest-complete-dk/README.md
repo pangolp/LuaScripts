@@ -1,3 +1,5 @@
+# ![logo](https://raw.githubusercontent.com/azerothcore/azerothcore.github.io/master/images/logo-github.png) AzerothCore
+
 ### Quest complete dk
 
 Como su nombre lo única, tiene como objetivo que el jugador no tenga que realizar las misiones del caballero de la muerte. Está pensando para servidores de prueba o bien para aquellos que son instance 80 y aun así deben realizar las misiones para poder sacarlos de su área de inicio.
