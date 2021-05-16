@@ -1,9 +1,12 @@
-DELETE FROM `creature_template` WHERE `entry`=200005;
+SET @ENTRY:=200005;
+SET @GUID:=4000005;
 
-INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `mindmg`, `maxdmg`, `dmgschool`, `attackpower`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `minrangedmg`, `maxrangedmg`, `rangedattackpower`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `resistance1`, `resistance2`, `resistance3`, `resistance4`, `resistance5`, `resistance6`, `spell1`, `spell2`, `spell3`, `spell4`, `spell5`, `spell6`, `spell7`, `spell8`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
-(200005, 0, 0, 0, 0, 0, 18718, 0, 0, 0, "Horacio Rodríguez Larreta", "Armas -400-", NULL, 0, 83, 83, 2, 2082, 1, 1, 0.99206, 1, 3, 509, 683, 0, 805, 35, 2000, 2000, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 371, 535, 135, 6, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", 0, 3, 1, 2000, 1, 1, 0, 0, 1, 8388624, 2, "", 12340);
+DELETE FROM `creature_template` WHERE `entry`=@ENTRY;
 
-DELETE FROM `creature` WHERE `id`=200005;
+INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entry_2`, `difficulty_entry_3`, `KillCredit1`, `KillCredit2`, `modelid1`, `modelid2`, `modelid3`, `modelid4`, `name`, `subname`, `IconName`, `gossip_menu_id`, `minlevel`, `maxlevel`, `exp`, `faction`, `npcflag`, `speed_walk`, `speed_run`, `scale`, `rank`, `dmgschool`, `DamageModifier`, `BaseAttackTime`, `RangeAttackTime`, `BaseVariance`, `RangeVariance`, `unit_class`, `unit_flags`, `unit_flags2`, `dynamicflags`, `family`, `trainer_type`, `trainer_spell`, `trainer_class`, `trainer_race`, `type`, `type_flags`, `lootid`, `pickpocketloot`, `skinloot`, `PetSpellDataId`, `VehicleId`, `mingold`, `maxgold`, `AIName`, `MovementType`, `InhabitType`, `HoverHeight`, `HealthModifier`, `ManaModifier`, `ArmorModifier`, `RacialLeader`, `movementId`, `RegenHealth`, `mechanic_immune_mask`, `spell_school_immune_mask`, `flags_extra`, `ScriptName`, `VerifiedBuild`) VALUES
+(@ENTRY, 0, 0, 0, 0, 0, 18718, 0, 0, 0, "Horacio Rodríguez Larreta", "Armas -400-", NULL, 0, 83, 83, 2, 35, 1, 1, 1, 1, 3, 0, 35, 2000, 2000, 1, 1, 1, 768, 2048, 0, 0, 0, 0, 0, 0, 6, 36, 0, 0, 0, 0, 0, 0, 0, "", 0, 3, 1, 0, 1, 1, 0, 0, 1, 0, 0, 2, "", 12340);
+
+DELETE FROM `creature` WHERE `id`=@ENTRY;
 
 INSERT INTO `creature` (`guid`, `id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `modelid`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`) VALUES
-(4000005, 200005, 571, 0, 0, 1, 1, 0, 0, 5791.41, 434.75, 658.783, 0.578921, 300, 0, 0, 27890000, 0, 0, 0, 0, 0, '', 0);
+(@GUID, @ENTRY, 571, 0, 0, 1, 1, 0, 0, 5791.41, 434.75, 658.783, 0.578921, 300, 0, 0, 27890000, 0, 0, 0, 0, 0, '', 0);
